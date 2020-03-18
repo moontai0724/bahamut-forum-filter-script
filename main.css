@@ -1,0 +1,11 @@
+body:not(.HBL_ENABLED) .HBL.toggleStatus span::before {
+    content: "開啟";
+}
+
+body.HBL_ENABLED .HBL.toggleStatus span::before {
+    content: "關閉";
+}
+
+body.HBL_ENABLED .HBL_HIDDEN {
+    display: none !important;
+}
