@@ -7,13 +7,14 @@ export default abstract class Page {
   public constructor(public handlers: Handler[]) {}
 
   public static isMatch(device: DeviceType, pathname: string): boolean {
+    console.info(
+      `checking device ${device}(${this.device}), pathname ${pathname}(${this.pathname}).`,
+    );
     return this.device === device && this.pathname === pathname;
   }
 
   public execute(): void {
-    console.info(
-      `executing controller of page ${Page.pathname} at ${Page.device}`,
-    );
+    console.info(`executing PageController: ${this.constructor.name}`);
     this.handlers.forEach(handler => handler.execute());
   }
 }
