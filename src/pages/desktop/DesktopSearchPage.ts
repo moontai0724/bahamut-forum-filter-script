@@ -2,8 +2,8 @@ import DesktopGoogleSearchHandler from "../../handlers/desktop/DesktopGoogleSear
 import Page from "../Page";
 
 export default class DesktopSearchPage extends Page {
-  public static device: "desktop";
-  public static pathname: "/search.php";
+  public static device: DeviceType = "desktop";
+  public static pathname: PageType = "/search.php";
 
   public constructor() {
     const googleSearchHandler = new DesktopGoogleSearchHandler();
