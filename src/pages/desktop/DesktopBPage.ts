@@ -3,8 +3,8 @@ import DesktopRecommendHandler from "../../handlers/desktop/DesktopRecommendHand
 import Page from "../Page";
 
 export default class DesktopBPage extends Page {
-  public static device: DeviceType = "desktop";
-  public static pathname: PageType = "/B.php";
+  public static readonly device: DeviceType = "desktop";
+  public static readonly pathname: PageType = "/B.php";
 
   public constructor() {
     const listHandler = new DesktopListHandler();

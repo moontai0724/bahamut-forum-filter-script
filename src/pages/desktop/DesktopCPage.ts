@@ -4,8 +4,8 @@ import DesktopThreadHandler from "../../handlers/desktop/DesktopThreadHandler";
 import Page from "../Page";
 
 export default class DesktopCPage extends Page {
-  public static device: DeviceType = "desktop";
-  public static pathname: PageType = "/C.php";
+  public static readonly device: DeviceType = "desktop";
+  public static readonly pathname: PageType = "/C.php";
 
   public constructor() {
     const threadHandler = new DesktopThreadHandler();
