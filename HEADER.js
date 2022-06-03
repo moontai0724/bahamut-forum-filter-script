@@ -9,7 +9,7 @@
 // @match        https://forum.gamer.com.tw/C.php*
 // @match        https://forum.gamer.com.tw/Co.php*
 // @match        https://forum.gamer.com.tw/search.php*
-// @grant        none
+// @grant        GM_addStyle
 // @supportURL   https://github.com/moontai0724/bahamut-forum-filter-script/issues
 // @license      MIT
 // ==/UserScript==

@@ -3,6 +3,9 @@ import DesktopBPage from "./pages/desktop/DesktopBPage";
 import DesktopCoPage from "./pages/desktop/DesktopCoPage";
 import DesktopCPage from "./pages/desktop/DesktopCPage";
 import DesktopSearchPage from "./pages/desktop/DesktopSearchPage";
+import UIController from "./ui/UIController";
+
+UIController.initialize();
 
 const device: DeviceType =
   location.hostname === "m.gamer.com.tw" ? "mobile" : "desktop";

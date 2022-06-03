@@ -1,0 +1,11 @@
+#baha-forum-filter-status-switcher span::before {
+  content: "開啟";
+}
+
+body.baha-forum-filter-enabled #baha-forum-filter-status-switcher span::before {
+  content: "關閉";
+}
+
+body.baha-forum-filter-enabled .hidden-by-filter {
+  display: none !important;
+}

@@ -10,9 +10,10 @@ module.exports = {
     "prettier",
   ],
   ignorePatterns: ["node_modules/", "dist/", ".eslintrc.js", "*.config.js"],
+  parser: "@typescript-eslint/parser",
   parserOptions: {
+    project: "tsconfig.json",
     ecmaVersion: "latest",
-    parser: "@typescript-eslint/parser",
     sourceType: "module",
   },
   plugins: ["vue", "@typescript-eslint"],
