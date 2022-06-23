@@ -10,6 +10,9 @@
 // @match        https://forum.gamer.com.tw/Co.php*
 // @match        https://forum.gamer.com.tw/search.php*
 // @grant        GM_addStyle
+// @grant        GM_getValue
+// @grant        GM_setValue
+// @website      https://github.com/moontai0724/bahamut-forum-filter-script
 // @supportURL   https://github.com/moontai0724/bahamut-forum-filter-script/issues
 // @license      MIT
 // ==/UserScript==
