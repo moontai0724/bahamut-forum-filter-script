@@ -5,7 +5,7 @@ import SettingWindow from "./components/setting-window/SettingWindow";
 export default class UIController {
   public static instance?: Dialogify;
 
-  public static initialize() {
+  public static initialize(): void {
     GM_addStyle(style);
 
     const menu = document.querySelector(".BH-menuE");
@@ -28,7 +28,7 @@ export default class UIController {
     menu.appendChild(filterSetting);
   }
 
-  public static openWindow() {
+  public static openWindow(): void {
     if (this.instance && this.instance.isOpen()) return;
 
     this.instance = new Dialogify("", { size: Dialogify.SIZE_LARGE });

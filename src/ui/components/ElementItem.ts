@@ -3,7 +3,7 @@ export default class ElementItem {
 
   constructor(public element: HTMLElement) {}
 
-  public static addStyle(name: string, content: string) {
+  public static addStyle(name: string, content: string): void {
     if (this.styles[name]) return;
     this.styles[name] = content;
   }

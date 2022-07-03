@@ -17,4 +17,7 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["vue", "@typescript-eslint"],
+  rules: {
+    "@typescript-eslint/explicit-function-return-type": "error",
+  },
 };
