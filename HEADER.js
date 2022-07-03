@@ -12,6 +12,8 @@
 // @grant        GM_addStyle
 // @grant        GM_getValue
 // @grant        GM_setValue
+// @grant        GM_xmlhttpRequest
+// @connect      home.gamer.com.tw
 // @website      https://github.com/moontai0724/bahamut-forum-filter-script
 // @supportURL   https://github.com/moontai0724/bahamut-forum-filter-script/issues
 // @license      MIT

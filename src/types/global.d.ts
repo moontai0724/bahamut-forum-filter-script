@@ -10,4 +10,5 @@ declare global {
     | "/Co.php"
     | "/search.php";
   type MobilePageType = "/forum/B.php" | "/forum/C.php" | "/forum/Co.php";
+  type DisplayPolicy = "allow" | "deny";
 }
