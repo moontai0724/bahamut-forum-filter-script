@@ -1,10 +1,9 @@
-import LengthConfigItem from "../configs/length/LengthConfigItem";
 import LengthConfigManager from "../configs/length/LengthConfigManager";
 import Filter from "./Filter";
 
 export default class LengthFilter extends Filter {
-  constructor(selector: string, public contentType: ContentType) {
-    super(selector);
+  constructor(selector: string, contentType: ContentType) {
+    super(selector, contentType);
   }
 
   public test(element: Element): boolean {
@@ -21,10 +20,19 @@ export default class LengthFilter extends Filter {
       return true;
     }
 
-    const conditions = LengthConfigManager.load() as LengthConfigItem[];
+    LengthConfigManager.load();
+
+    if (!LengthConfigManager.enabled[this.contentType]) {
+      console.info(
+        "LengthFilter: length filter disabled for content type: ",
+        this.contentType,
+      );
+      return true;
+    }
 
     const limit =
-      conditions.find(i => i.contentType === this.contentType)?.limit ?? 0;
+      LengthConfigManager.items.find(i => i.contentType === this.contentType)
+        ?.limit ?? -1;
 
     if ((target.textContent?.length ?? 0) <= limit) {
       console.info(

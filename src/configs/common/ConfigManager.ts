@@ -4,6 +4,7 @@ export default class ConfigManager {
   public static readonly key: string;
   public static itemClass = ConfigItem;
   public static items: ConfigItem[] = [];
+  public static enabled: Record<ContentType, boolean>;
 
   static isExist(item: ConfigItem): boolean {
     const existing = this.items.find(i => i.equalsTo(item));
@@ -27,14 +28,24 @@ export default class ConfigManager {
   }
 
   static load(): ConfigItem[] {
-    const raw = GM_getValue(this.key, []);
-    this.items = raw.map(this.itemClass.fromData);
+    const raw = GM_getValue(this.key, {
+      enabled: {
+        post: true,
+        comment: true,
+      },
+      data: [],
+    });
+    this.items = raw.data.map(this.itemClass.fromData);
+    this.enabled = raw.enabled;
 
     return this.items;
   }
 
   static save(): void {
-    const data = this.items.map(i => i.toData());
+    const data = {
+      enabled: this.enabled,
+      data: this.items.map(i => i.toData()),
+    };
     GM_setValue(this.key, data);
   }
 

@@ -1,10 +1,9 @@
-import KeywordConfigItem from "../configs/keyword/KeywordConfigItem";
 import KeywordConfigManager from "../configs/keyword/KeywordConfigManager";
 import Filter from "./Filter";
 
 export default class KeywordFilter extends Filter {
-  constructor(selector: string, public contentType: ContentType) {
-    super(selector);
+  constructor(selector: string, contentType: ContentType) {
+    super(selector, contentType);
   }
 
   public test(element: Element): boolean {
@@ -21,9 +20,17 @@ export default class KeywordFilter extends Filter {
       return true;
     }
 
-    const conditions = KeywordConfigManager.load() as KeywordConfigItem[];
+    KeywordConfigManager.load();
 
-    for (const condition of conditions) {
+    if (!KeywordConfigManager.enabled[this.contentType]) {
+      console.info(
+        "KeywordFilter: keyword filter disabled for content type: ",
+        this.contentType,
+      );
+      return true;
+    }
+
+    for (const condition of KeywordConfigManager.items) {
       if (!condition.matches[this.contentType]) continue;
 
       const regExp = condition.getRegExp();

@@ -1,13 +1,12 @@
 import UserFromSystemManager from "../configs/user-system/UserFromSystemManager";
-import UserConfigItem from "../configs/user/UserConfigItem";
 import UserConfigManager from "../configs/user/UserConfigManager";
 import Filter from "./Filter";
 
 export default class UserFilter extends Filter {
   static users: string[] = [];
 
-  constructor(selector: string) {
-    super(selector);
+  constructor(selector: string, contentType: ContentType) {
+    super(selector, contentType);
   }
 
   public test(element: Element): boolean {
@@ -30,6 +29,14 @@ export default class UserFilter extends Filter {
     }
 
     const blockedUsers = this.migrateBlockedUsers();
+    if (!UserConfigManager.enabled[this.contentType]) {
+      console.info(
+        "UserFilter: user filter disabled for content type: ",
+        this.contentType,
+      );
+      return true;
+    }
+
     if (blockedUsers.includes(author)) {
       console.info(
         "UserFilter: matched user: ",
@@ -47,8 +54,10 @@ export default class UserFilter extends Filter {
   public migrateBlockedUsers(): string[] {
     if (UserFilter.users.length) return UserFilter.users;
 
-    const systemDeniedUsers = UserFromSystemManager.load() as UserConfigItem[];
-    const customDeniedUsers = UserConfigManager.load() as UserConfigItem[];
+    UserConfigManager.load();
+    UserFromSystemManager.load();
+    const systemDeniedUsers = UserFromSystemManager.items;
+    const customDeniedUsers = UserConfigManager.items;
     customDeniedUsers.forEach(user => {
       const existingRecordIndex = systemDeniedUsers.findIndex(
         item => item.account === user.account,

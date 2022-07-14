@@ -13,7 +13,7 @@ export default class DesktopCommentHandler extends Handler {
       ".reply-content__article",
       "comment",
     );
-    const userFilter = new UserFilter(".reply-content__user");
+    const userFilter = new UserFilter(".reply-content__user", "comment");
 
     super(".c-reply__item[id]", [
       contentFilter,

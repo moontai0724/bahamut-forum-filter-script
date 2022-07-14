@@ -1,5 +1,5 @@
 export default abstract class Filter {
-  constructor(public selector: string) {}
+  constructor(public selector: string, public contentType: ContentType) {}
 
   /**
    * Test an element is passed the filter or not.
