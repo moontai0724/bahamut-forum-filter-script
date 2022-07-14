@@ -1,7 +1,14 @@
 import ConfigItem from "../common/ConfigItem";
 
 export default class KeywordConfigItem extends ConfigItem {
-  constructor(public value: string, public full: boolean) {
+  constructor(
+    public value: string,
+    public full: boolean,
+    public matches: Record<ContentType, boolean> = {
+      post: true,
+      comment: true,
+    },
+  ) {
     super();
   }
 

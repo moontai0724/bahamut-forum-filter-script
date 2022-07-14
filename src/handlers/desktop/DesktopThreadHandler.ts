@@ -5,7 +5,7 @@ import Handler from "../Handler";
 
 export default class DesktopThreadHandler extends Handler {
   public constructor() {
-    const contentFilter = new KeywordFilter(".c-article__content");
+    const contentFilter = new KeywordFilter(".c-article__content", "post");
     const contentLengthFilter = new LengthFilter(".c-article__content", "post");
     const userFilter = new UserFilter(".userid");
 

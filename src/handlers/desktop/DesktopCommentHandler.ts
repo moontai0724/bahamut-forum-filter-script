@@ -5,7 +5,10 @@ import Handler from "../Handler";
 
 export default class DesktopCommentHandler extends Handler {
   public constructor() {
-    const contentFilter = new KeywordFilter(".reply-content__article");
+    const contentFilter = new KeywordFilter(
+      ".reply-content__article",
+      "comment",
+    );
     const contentLengthFilter = new LengthFilter(
       ".reply-content__article",
       "comment",

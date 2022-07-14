@@ -3,7 +3,7 @@ import Handler from "../Handler";
 
 export default class DesktopRecommendHandler extends Handler {
   public constructor() {
-    const titleFilter = new KeywordFilter(".name");
+    const titleFilter = new KeywordFilter(".name", "post");
 
     super(".popular__item", [titleFilter]);
   }

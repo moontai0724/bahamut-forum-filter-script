@@ -3,7 +3,7 @@ import KeywordConfigManager from "../configs/keyword/KeywordConfigManager";
 import Filter from "./Filter";
 
 export default class KeywordFilter extends Filter {
-  constructor(selector: string) {
+  constructor(selector: string, public contentType: ContentType) {
     super(selector);
   }
 
@@ -24,6 +24,8 @@ export default class KeywordFilter extends Filter {
     const conditions = KeywordConfigManager.load() as KeywordConfigItem[];
 
     for (const condition of conditions) {
+      if (!condition.matches[this.contentType]) continue;
+
       const regExp = condition.getRegExp();
       if (regExp.test(target.textContent ?? "")) {
         console.info(
