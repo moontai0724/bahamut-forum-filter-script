@@ -2,7 +2,7 @@ import LengthConfigManager from "../configs/length/LengthConfigManager";
 import Filter from "./Filter";
 
 export default class LengthFilter extends Filter {
-  constructor(selector: string, contentType: ContentType) {
+  public constructor(selector: string, contentType: ContentType) {
     super(selector, contentType);
   }
 

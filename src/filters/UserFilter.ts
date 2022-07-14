@@ -3,9 +3,9 @@ import UserConfigManager from "../configs/user/UserConfigManager";
 import Filter from "./Filter";
 
 export default class UserFilter extends Filter {
-  static users: string[] = [];
+  public static users: string[] = [];
 
-  constructor(selector: string, contentType: ContentType) {
+  public constructor(selector: string, contentType: ContentType) {
     super(selector, contentType);
   }
 

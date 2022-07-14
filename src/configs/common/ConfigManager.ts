@@ -6,12 +6,12 @@ export default class ConfigManager {
   public static items: ConfigItem[] = [];
   public static enabled: Record<ContentType, boolean>;
 
-  static isExist(item: ConfigItem): boolean {
+  public static isExist(item: ConfigItem): boolean {
     const existing = this.items.find(i => i.equalsTo(item));
     return !!existing;
   }
 
-  static add(item: ConfigItem): void {
+  public static add(item: ConfigItem): void {
     if (this.isExist(item)) {
       console.info("item already exists: ", item);
       this.save();
@@ -22,12 +22,12 @@ export default class ConfigManager {
     this.save();
   }
 
-  static remove(item: ConfigItem): void {
+  public static remove(item: ConfigItem): void {
     this.items.splice(this.items.indexOf(item), 1);
     this.save();
   }
 
-  static load(): ConfigItem[] {
+  public static load(): ConfigItem[] {
     const raw = GM_getValue(this.key, {
       enabled: {
         post: true,
@@ -41,7 +41,7 @@ export default class ConfigManager {
     return this.items;
   }
 
-  static save(): void {
+  public static save(): void {
     const data = {
       enabled: this.enabled,
       data: this.items.map(i => i.toData()),
@@ -49,7 +49,7 @@ export default class ConfigManager {
     GM_setValue(this.key, data);
   }
 
-  static clear(): void {
+  public static clear(): void {
     this.items = [];
     this.save();
   }

@@ -2,7 +2,7 @@ import KeywordConfigManager from "../configs/keyword/KeywordConfigManager";
 import Filter from "./Filter";
 
 export default class KeywordFilter extends Filter {
-  constructor(selector: string, contentType: ContentType) {
+  public constructor(selector: string, contentType: ContentType) {
     super(selector, contentType);
   }
 

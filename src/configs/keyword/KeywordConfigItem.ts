@@ -1,7 +1,7 @@
 import ConfigItem from "../common/ConfigItem";
 
 export default class KeywordConfigItem extends ConfigItem {
-  constructor(
+  public constructor(
     public value: string,
     public full: boolean,
     public matches: Record<ContentType, boolean> = {
@@ -12,11 +12,11 @@ export default class KeywordConfigItem extends ConfigItem {
     super();
   }
 
-  equalsTo(item: KeywordConfigItem): boolean {
+  public equalsTo(item: KeywordConfigItem): boolean {
     return item.value === this.value && item.full === this.full;
   }
 
-  getRegExp(): RegExp {
+  public getRegExp(): RegExp {
     if (this.full) {
       return new RegExp(`^${this.value}$`);
     }
@@ -24,7 +24,7 @@ export default class KeywordConfigItem extends ConfigItem {
     return new RegExp(this.value);
   }
 
-  toData(): Record<string, unknown> {
+  public toData(): Record<string, unknown> {
     const data = {
       value: this.value,
       full: this.full,
@@ -33,7 +33,7 @@ export default class KeywordConfigItem extends ConfigItem {
     return data;
   }
 
-  static fromData(data: Record<string, unknown>): KeywordConfigItem {
+  public static fromData(data: Record<string, unknown>): KeywordConfigItem {
     return new KeywordConfigItem(data.value as string, data.full as boolean);
   }
 }
