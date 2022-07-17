@@ -36,7 +36,20 @@ export default class ConfigManager {
       data: [],
     });
     this.items = raw.data.map(this.itemClass.fromData);
-    this.enabled = raw.enabled;
+
+    const listener = {
+      originalObject: this,
+      set(
+        target: Record<ContentType, boolean>,
+        prop: ContentType,
+        value: boolean,
+      ): boolean {
+        target[prop] = value;
+        this.originalObject.save();
+        return true;
+      },
+    };
+    this.enabled = new Proxy(raw.enabled, listener);
 
     return this.items;
   }
