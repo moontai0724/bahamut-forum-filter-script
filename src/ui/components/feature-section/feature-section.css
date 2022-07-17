@@ -1,0 +1,21 @@
+#baha-forum-filter-setting-window section,
+#baha-forum-filter-setting-window .feature-section header,
+#baha-forum-filter-setting-window .feature-section h1,
+#baha-forum-filter-setting-window .feature-section p,
+#baha-forum-filter-setting-window .feature-section main {
+  margin: revert;
+  padding: revert;
+  font-size: revert;
+  font-weight: revert;
+}
+
+#baha-forum-filter-setting-window section.feature-section {
+  border: 2px dotted;
+  margin: 10px 0;
+  padding: 0 5px;
+}
+
+#baha-forum-filter-setting-window .feature-section main {
+  border: 1px solid;
+  margin: 5px;
+}

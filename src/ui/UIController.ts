@@ -1,6 +1,6 @@
 import style from "./app.css";
 import ElementItem from "./components/ElementItem";
-import SettingWindow from "./components/setting-window/SettingWindow";
+import SettingWindow from "./setting-window/SettingWindow";
 
 export default class UIController {
   public static instance?: Dialogify;

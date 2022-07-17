@@ -1,0 +1,8 @@
+#baha-forum-filter-setting-window .two-side-switch > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid;
+}

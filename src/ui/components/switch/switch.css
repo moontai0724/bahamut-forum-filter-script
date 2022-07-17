@@ -1,0 +1,44 @@
+#baha-forum-filter-setting-window label.switch {
+  cursor: pointer;
+  display: block;
+  width: 62px;
+  height: 22px;
+  color: white;
+  background: #30606a;
+  border: solid 3px rgb(66 148 170 / 80%);
+  border-radius: 4px;
+  position: relative;
+}
+
+#baha-forum-filter-setting-window .switch i::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 25px;
+  height: 20px;
+  background: linear-gradient(135deg, indianred 0%, crimson 100%);
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+#baha-forum-filter-setting-window .switch input:checked + * + i::after {
+  left: 36px;
+  background: linear-gradient(135deg, #59b3b3 0%, lightgreen 100%);
+}
+
+#baha-forum-filter-setting-window .switch span::before,
+#baha-forum-filter-setting-window .switch span::after {
+  position: absolute;
+  top: 5px;
+}
+
+#baha-forum-filter-setting-window .switch span::before {
+  content: attr(on);
+  left: 10px;
+}
+
+#baha-forum-filter-setting-window .switch span::after {
+  content: attr(off);
+  right: 10px;
+}

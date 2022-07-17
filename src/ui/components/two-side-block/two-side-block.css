@@ -1,0 +1,14 @@
+#baha-forum-filter-setting-window .two-side-block {
+  display: flex;
+  flex-direction: row;
+}
+
+#baha-forum-filter-setting-window .left-side {
+  flex: 1;
+  padding: 0 5px;
+}
+
+#baha-forum-filter-setting-window .right-side {
+  flex: 1;
+  padding: 0 5px;
+}
