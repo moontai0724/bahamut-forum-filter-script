@@ -12,19 +12,11 @@ export default class ConfigManager {
   }
 
   public static add(item: ConfigItem): void {
-    if (this.isExist(item)) {
-      console.info("item already exists: ", item);
-      this.save();
-      return;
-    }
-
     this.items.push(item);
-    this.save();
   }
 
   public static remove(item: ConfigItem): void {
     this.items.splice(this.items.indexOf(item), 1);
-    this.save();
   }
 
   public static load(): ConfigItem[] {
@@ -35,21 +27,24 @@ export default class ConfigManager {
       },
       data: [],
     });
-    this.items = raw.data.map(this.itemClass.fromData);
 
     const listener = {
       originalObject: this,
-      set(
-        target: Record<ContentType, boolean>,
-        prop: ContentType,
-        value: boolean,
-      ): boolean {
+      get(target: never, key: never): never {
+        if (typeof target[key] === "object" && target[key] !== null) {
+          return new Proxy(target[key], listener);
+        } else {
+          return target[key];
+        }
+      },
+      set(target: never, prop: never, value: never): boolean {
         target[prop] = value;
         this.originalObject.save();
         return true;
       },
     };
     this.enabled = new Proxy(raw.enabled, listener);
+    this.items = new Proxy(raw.data.map(this.itemClass.fromData), listener);
 
     return this.items;
   }
@@ -59,11 +54,11 @@ export default class ConfigManager {
       enabled: this.enabled,
       data: this.items.map(i => i.toData()),
     };
+    console.log("saving data: ", data);
     GM_setValue(this.key, data);
   }
 
   public static clear(): void {
-    this.items = [];
-    this.save();
+    this.items.splice(0, this.items.length);
   }
 }
