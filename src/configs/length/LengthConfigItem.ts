@@ -6,7 +6,7 @@ export default class LengthConfigItem extends ConfigItem {
   }
 
   public equalsTo(item: LengthConfigItem): boolean {
-    return item.limit === this.limit && item.contentType === this.contentType;
+    return item.contentType === this.contentType;
   }
 
   public toData(): Record<string, unknown> {

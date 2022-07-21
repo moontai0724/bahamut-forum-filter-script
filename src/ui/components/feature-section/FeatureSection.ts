@@ -7,6 +7,7 @@ export default class FeatureSection extends ElementItem {
     public title: string,
     public description: string,
     public enabled: Record<ContentType, boolean>,
+    public content: HTMLElement | null = null,
   ) {
     super(document.createElement("section"));
     this.element.classList.add("feature-section");
@@ -27,6 +28,8 @@ export default class FeatureSection extends ElementItem {
 
     const switches = new TwoSideSwitch(enabled);
     contentElement.appendChild(switches.element);
+
+    if (content) contentElement.appendChild(content);
 
     this.element.appendChild(contentElement);
 

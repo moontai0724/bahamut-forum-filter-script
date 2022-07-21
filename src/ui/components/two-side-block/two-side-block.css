@@ -3,12 +3,8 @@
   flex-direction: row;
 }
 
-#baha-forum-filter-setting-window .left-side {
+#baha-forum-filter-setting-window .two-side-block > div {
+  padding: 5px;
+  border: 1px solid;
   flex: 1;
-  padding: 0 5px;
-}
-
-#baha-forum-filter-setting-window .right-side {
-  flex: 1;
-  padding: 0 5px;
 }
