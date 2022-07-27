@@ -9,13 +9,13 @@
     "email": "moontai0724@gmail.com"
   },
   "lint-staged": {
-    "src/**/*.{js,vue}": "eslint --cache",
-    "src/**/*.{css,vue}": "stylelint",
-    "src/**/*.**": "prettier --check --ignore-unknown ./src"
+    "src/**/*.{ts,js,vue}": "eslint --cache --fix",
+    "src/**/*.{css,vue}": "stylelint --fix",
+    "src/**/*.**": "prettier --check --ignore-unknown"
   },
   "scripts": {
     "lint": "yarn lint:eslint && yarn lint:prettier",
-    "lint:eslint": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint:eslint": "eslint --ext \".ts,.js,.vue\" --ignore-path .gitignore ./src",
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
     "lint:prettier": "prettier --check ./src",
     "build": "webpack --config webpack.config.js",
