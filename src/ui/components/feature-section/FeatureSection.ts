@@ -3,11 +3,12 @@ import TwoSideSwitch from "../TwoSideSwitch/TwoSideSwitch";
 import style from "./feature-section.css";
 
 export default class FeatureSection extends ElementItem {
+  public contentElement;
+
   public constructor(
     public title: string,
     public description: string,
     public enabled: Record<ContentType, boolean>,
-    public content: HTMLElement | null = null,
   ) {
     super(document.createElement("section"));
     this.element.classList.add("feature-section");
@@ -24,14 +25,12 @@ export default class FeatureSection extends ElementItem {
 
     this.element.appendChild(headerElement);
 
-    const contentElement = document.createElement("main");
+    this.contentElement = document.createElement("main");
 
     const switches = new TwoSideSwitch(enabled);
-    contentElement.appendChild(switches.element);
+    this.contentElement.appendChild(switches.element);
 
-    if (content) contentElement.appendChild(content);
-
-    this.element.appendChild(contentElement);
+    this.element.appendChild(this.contentElement);
 
     ElementItem.addStyle("FeatureSection", style);
   }

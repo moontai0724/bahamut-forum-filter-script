@@ -8,6 +8,12 @@ import style from "./length-filter-setting.css";
 
 export default class LengthFilterSetting extends FeatureSection {
   public constructor() {
+    super(
+      "長度過濾",
+      "可以指定長度限制，當內容長度 ≦ 限制長度時，就會被隱藏。",
+      LengthConfigManager.enabled,
+    );
+
     const twoSideBlock = new TwoSideBlock();
 
     let postLengthLimit = LengthConfigManager.items.find(
@@ -55,12 +61,7 @@ export default class LengthFilterSetting extends FeatureSection {
     twoSideBlock.rightSideElement.appendChild(rightInput.element);
     twoSideBlock.element.classList.add("input-area");
 
-    super(
-      "長度過濾",
-      "可以指定長度限制，當內容長度 ≦ 限制長度時，就會被隱藏。",
-      LengthConfigManager.enabled,
-      twoSideBlock.element,
-    );
+    this.contentElement.appendChild(twoSideBlock.element);
 
     this.element.classList.add("length-filter-setting");
     ElementItem.addStyle("LengthFilterSetting", style);
