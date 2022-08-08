@@ -1,3 +1,7 @@
+#baha-forum-filter-status-switcher {
+  user-select: none;
+}
+
 #baha-forum-filter-status-switcher span::before {
   content: "開啟";
 }
