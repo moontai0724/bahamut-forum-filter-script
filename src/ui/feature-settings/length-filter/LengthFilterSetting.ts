@@ -2,7 +2,7 @@ import LengthConfigItem from "../../../configs/length/LengthConfigItem";
 import LengthConfigManager from "../../../configs/length/LengthConfigManager";
 import ElementItem from "../../components/ElementItem";
 import FeatureSection from "../../components/feature-section/FeatureSection";
-import Input from "../../components/input/Input";
+import InputWithLabel from "../../components/input-with-label/InputWithLabel";
 import TwoSideBlock from "../../components/two-side-block/TwoSideBlock";
 import style from "./length-filter-setting.css";
 
@@ -23,10 +23,10 @@ export default class LengthFilterSetting extends FeatureSection {
       postLengthLimit = new LengthConfigItem(0, "post");
       LengthConfigManager.add(postLengthLimit);
     }
-    const leftInput = new Input(
-      "number",
-      postLengthLimit.limit.toString(),
+    const leftInput = new InputWithLabel(
       {
+        type: "number",
+        value: postLengthLimit.limit.toString(),
         placeholder: "文章長度限制",
         min: "0",
       },
@@ -45,10 +45,10 @@ export default class LengthFilterSetting extends FeatureSection {
       commentLengthLimit = new LengthConfigItem(0, "comment");
       LengthConfigManager.add(commentLengthLimit);
     }
-    const rightInput = new Input(
-      "number",
-      commentLengthLimit.limit.toString(),
+    const rightInput = new InputWithLabel(
       {
+        type: "number",
+        value: commentLengthLimit.limit.toString(),
         placeholder: "留言長度限制",
         min: "0",
       },

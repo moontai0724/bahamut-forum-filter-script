@@ -1,21 +1,17 @@
 import ElementItem from "../ElementItem";
 
-export default class Input extends ElementItem {
+export default class InputWithLabel extends ElementItem {
   public constructor(
-    type: string,
-    value: string,
-    props: Record<string, string>,
+    props: { type: string; [key: string]: string },
     content: string,
-    listener: EventListenerOrEventListenerObject,
+    listener: EventListenerOrEventListenerObject | null = null,
   ) {
     super(document.createElement("label"));
 
     this.element.innerHTML = content;
 
     const input = document.createElement("input");
-    input.type = type;
-    input.value = value;
-    input.addEventListener("change", listener);
+    if (listener) input.addEventListener("change", listener);
     Object.entries(props).forEach(([key, value]) =>
       input.setAttribute(key, value),
     );
