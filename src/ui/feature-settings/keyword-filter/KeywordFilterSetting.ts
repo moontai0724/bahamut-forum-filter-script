@@ -10,7 +10,7 @@ export default class KeywordFilterSetting extends FeatureSection {
       KeywordConfigManager.enabled,
     );
 
-    const keywordBlock = new KeywordBlock();
+    const keywordBlock = new KeywordBlock(KeywordConfigManager.items);
     this.contentElement.appendChild(keywordBlock.element);
   }
 }

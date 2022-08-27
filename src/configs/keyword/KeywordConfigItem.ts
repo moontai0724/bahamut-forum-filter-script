@@ -24,6 +24,10 @@ export default class KeywordConfigItem extends ConfigItem {
     return new RegExp(this.value);
   }
 
+  public getOriginalText(): string {
+    return this.value.replace(/\\([.*+?^${}()|[\]\\])/g, "$1");
+  }
+
   public toData(): Record<string, unknown> {
     const data = {
       value: this.value,

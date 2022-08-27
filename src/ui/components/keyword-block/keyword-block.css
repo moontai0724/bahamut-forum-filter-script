@@ -5,3 +5,10 @@
   flex-flow: row wrap;
   justify-content: space-evenly;
 }
+
+#baha-forum-filter-setting-window .keyword-block #add-keyword,
+#baha-forum-filter-setting-window .keyword-block .description {
+  width: 100%;
+  margin: 5px;
+  line-height: 200%;
+}

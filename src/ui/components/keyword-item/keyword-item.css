@@ -1,0 +1,37 @@
+#baha-forum-filter-setting-window .keyword-item {
+  border: 1px solid;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 2px;
+  max-width: 200px;
+}
+
+#baha-forum-filter-setting-window .keyword-item * {
+  padding: 2px;
+  margin: 2px;
+}
+
+#baha-forum-filter-setting-window .keyword-item .fa {
+  font-family: FontAwesome, sans-serif;
+  user-select: none;
+}
+
+#baha-forum-filter-setting-window .keyword-item i {
+  font-style: initial;
+  cursor: help;
+}
+
+#baha-forum-filter-setting-window .keyword-item button {
+  padding: 2px 5px;
+}
+
+#baha-forum-filter-setting-window .keyword-item .status {
+  text-align: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+#baha-forum-filter-setting-window .keyword-item .text {
+  word-break: break-word;
+}
