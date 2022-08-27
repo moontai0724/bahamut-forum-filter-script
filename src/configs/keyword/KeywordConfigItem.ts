@@ -32,12 +32,17 @@ export default class KeywordConfigItem extends ConfigItem {
     const data = {
       value: this.value,
       full: this.full,
+      matches: this.matches,
     };
 
     return data;
   }
 
   public static fromData(data: Record<string, unknown>): KeywordConfigItem {
-    return new KeywordConfigItem(data.value as string, data.full as boolean);
+    return new KeywordConfigItem(
+      data.value as string,
+      data.full as boolean,
+      data.matches as Record<ContentType, boolean>,
+    );
   }
 }
