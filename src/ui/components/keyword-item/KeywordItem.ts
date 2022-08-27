@@ -1,4 +1,5 @@
 import KeywordConfigItem from "../../../configs/keyword/KeywordConfigItem";
+import KeywordConfigManager from "../../../configs/keyword/KeywordConfigManager";
 import ElementItem from "../ElementItem";
 import style from "./keyword-item.css";
 
@@ -47,8 +48,11 @@ export default class KeywordItem extends ElementItem {
     deleteButton.title = "刪除";
     deleteButton.classList.add("fa");
     deleteButton.innerHTML = "&#xf1f8;";
-    deleteButton.addEventListener("click", () => {
+    deleteButton.addEventListener("click", event => {
+      event.preventDefault();
       console.log("Delete keyword: ", keyword.toData());
+      KeywordConfigManager.remove(keyword);
+      this.element.remove();
     });
     status.appendChild(deleteButton);
 
