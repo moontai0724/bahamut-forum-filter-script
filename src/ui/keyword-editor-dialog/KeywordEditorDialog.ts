@@ -19,7 +19,7 @@ export default class KeywordEditorDialog {
     keywordInput.name = "keyword";
     keywordInput.placeholder = "請輸入關鍵字";
     keywordInput.classList.add("text-field");
-    if (keyword) keywordInput.value = keyword.value;
+    if (keyword) keywordInput.setAttribute("value", keyword.getOriginalText());
 
     const fullMatch = new Checkbox(
       "fullMatch",

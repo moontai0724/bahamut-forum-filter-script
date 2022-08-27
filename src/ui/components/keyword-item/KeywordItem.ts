@@ -1,5 +1,7 @@
 import KeywordConfigItem from "../../../configs/keyword/KeywordConfigItem";
 import KeywordConfigManager from "../../../configs/keyword/KeywordConfigManager";
+import KeywordEditorDialog from "../../keyword-editor-dialog/KeywordEditorDialog";
+import UIController from "../../UIController";
 import ElementItem from "../ElementItem";
 import style from "./keyword-item.css";
 
@@ -17,8 +19,23 @@ export default class KeywordItem extends ElementItem {
     editButton.classList.add("fa");
     editButton.title = "編輯";
     editButton.innerHTML = "&#xf044;";
-    editButton.addEventListener("click", () => {
+    editButton.addEventListener("click", event => {
+      event.preventDefault();
       console.log("Edit keyword: ", keyword.toData());
+      const dialog = new KeywordEditorDialog(keyword);
+      dialog.form?.addEventListener("submit", event => {
+        event.preventDefault();
+
+        const modifiedKeyword = dialog.getData();
+
+        keyword.value = modifiedKeyword.value;
+        keyword.full = modifiedKeyword.full;
+        keyword.matches.post = modifiedKeyword.matches.post;
+        keyword.matches.comment = modifiedKeyword.matches.comment;
+
+        Dialogify.closeAll();
+        UIController.openWindow();
+      });
     });
     status.appendChild(editButton);
 
