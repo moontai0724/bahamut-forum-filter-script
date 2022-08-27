@@ -16,7 +16,12 @@ export default class ConfigManager {
   }
 
   public static remove(item: ConfigItem): void {
-    this.items.splice(this.items.indexOf(item), 1);
+    const index = this.items.findIndex(i => i.equalsTo(item));
+    if (index == -1) {
+      console.error("Item not found", item, this.items);
+      throw new Error("Item not found");
+    }
+    this.items.splice(index, 1);
   }
 
   public static load(): ConfigItem[] {
