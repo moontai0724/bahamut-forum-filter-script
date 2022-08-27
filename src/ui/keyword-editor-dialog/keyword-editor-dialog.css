@@ -1,0 +1,5 @@
+/* stylelint-disable selector-class-pattern */
+.keyword-editor-dialog .dialogify__body * {
+  user-select: none;
+  margin: 6px;
+}

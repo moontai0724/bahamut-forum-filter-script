@@ -1,0 +1,7 @@
+#baha-forum-filter-setting-window .keyword-block {
+  padding: 5px;
+  border: 1px solid;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}

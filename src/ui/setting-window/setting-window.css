@@ -1,4 +1,5 @@
-#baha-forum-filter-setting-window {
+#baha-forum-filter-setting-window * {
   line-height: revert;
   font-size: revert;
+  padding: revert;
 }
