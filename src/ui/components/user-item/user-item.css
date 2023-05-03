@@ -1,0 +1,29 @@
+#baha-forum-filter-setting-window .user-item {
+  border: 1px solid;
+  border-radius: 5px;
+  margin: 2px;
+  padding: 2px;
+}
+
+#baha-forum-filter-setting-window .user-item * {
+  padding: 2px;
+  margin: 2px;
+}
+
+#baha-forum-filter-setting-window .user-item .fa {
+  font-family: FontAwesome, sans-serif;
+  user-select: none;
+}
+
+#baha-forum-filter-setting-window .user-item i {
+  font-style: initial;
+  cursor: help;
+}
+
+#baha-forum-filter-setting-window .user-item button {
+  padding: 2px 5px;
+}
+
+#baha-forum-filter-setting-window .user-item a {
+  color: inherit;
+}

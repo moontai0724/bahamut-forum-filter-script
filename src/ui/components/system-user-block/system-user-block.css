@@ -1,0 +1,19 @@
+#baha-forum-filter-setting-window .system-user-block {
+  padding: 10px;
+  border: 1px solid;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#baha-forum-filter-setting-window .system-user-block h2 {
+  font-weight: bold;
+}
+
+#baha-forum-filter-setting-window .system-user-block * {
+  margin: 2px;
+}
+
+#baha-forum-filter-setting-window .system-user-block #force-fetch {
+  width: 100%;
+  line-height: 200%;
+}
